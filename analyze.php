@@ -56,7 +56,7 @@ foreach ($wordAssArray as $word => $freq) {
 }
 echo '</div>';
 
-ksort($misspelledArray);
+sort($misspelledArray);
 echo '<div style="float:right;"><table><tr><th>Typos</th></tr>';
 foreach($misspelledArray as $word){
     echo '<tr><td>'.$word.'</td></tr>';
