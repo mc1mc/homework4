@@ -8,6 +8,7 @@
 $inputFile=fopen("input.txt","r+");
 $fileContentString= fread($inputFile,filesize("input.txt")) or die("Cannot find input file.");
 $wordArray= explode (",", $fileContentString);
+$misspelledWords=fopen("misspelled.txt", "w");
 /*foreach ($wordArray as $key => $word) {
   echo $word;
 }*/
@@ -58,7 +59,8 @@ echo '</div>';
 ksort($misspelledArray);
 echo '<div style="float:right;"><table><tr><th>Typos</th></tr>';
 foreach($misspelledArray as $word){
-    echo '<tr><td>'.$word.'</td></tr>'; 
+    echo '<tr><td>'.$word.'</td></tr>';
+    fwrite($misspelledWords, $word);
 }
 echo '</table></div>';
 ?>
